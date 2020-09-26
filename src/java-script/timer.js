@@ -38,19 +38,17 @@ const showMins = document.querySelector('span[data-value="mins"]');
 
 const showSecs = document.querySelector('span[data-value="secs"]');
 
-
+const targetDate = new Date('2021, 0, 30').getTime();
+const newTimer = new Timer(); 
 const start = () => {
   setInterval(() => {
     const dateNow = Date.now();
-    const targetDate = new Date('2021, 0, 30').getTime();
-    console.log(dateNow);
-    console.log(targetDate);
-    const time = (targetDate-dateNow);
-    const newTimer = new Timer(dateNow,targetDate); 
-    showDay.textContent = (newTimer.getDays(time));
-    showHour.textContent = (newTimer.getHours(time));
-    showMins.textContent = (newTimer.getMins(time));
-    showSecs.textContent = (newTimer.getSecs(time));
+    const time = targetDate-dateNow;
+    showDay.textContent = `${newTimer.getDays(time)}` ;
+    showHour.textContent = `${newTimer.getHours(time)}`;
+    showMins.textContent = `${newTimer.getMins(time)}`;
+    showSecs.textContent = `${newTimer.getSecs(time)}`;
+    console.log(`${newTimer.getSecs(time)}`);
   }, 1000)
 };
 start()
