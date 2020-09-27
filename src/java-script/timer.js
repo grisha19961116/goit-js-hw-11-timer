@@ -1,13 +1,9 @@
 export
  class Timer {
-  constructor({dateNow, targetDate,day = 0 ,hour = 0,mins = 0,secs = 0}) {
+  constructor({dateNow, targetDate}) {
     this.dateNow = dateNow;
     this.targetDate = targetDate;
     this.time = this.targetDate-this.dateNow;
-    this.day = day;
-    this.hour = hour;
-    this.mins = mins;
-    this.secs = secs;
   }
   showTimes(){
     return this.time;
@@ -16,7 +12,7 @@ export
     return Math.floor(this.time / (1000 * 60 * 60 * 24));
   }
   getHours(){
-    return this.hour = Math.floor((this.time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    return  Math.floor((this.time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   };
   getMins(){
     return Math.floor((this.time % (1000 * 60 * 60)) / (1000 * 60));
