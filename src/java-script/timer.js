@@ -1,24 +1,23 @@
-export
- class Timer {
-  constructor({dateNow, targetDate}) {
+export class Timer {
+  constructor({ dateNow, targetDate }) {
     this.dateNow = dateNow;
     this.targetDate = targetDate;
-    this.time = this.targetDate-this.dateNow;
+    this.time = this.targetDate - this.dateNow;
   }
-  showTimes(){
+  showTimes() {
     return this.time;
   }
-  getDays(){
+  getDays() {
     return Math.floor(this.time / (1000 * 60 * 60 * 24));
   }
-  getHours(){
-    return  Math.floor((this.time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  };
-  getMins(){
+  getHours() {
+    return Math.floor((this.time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  }
+  getMins() {
     return Math.floor((this.time % (1000 * 60 * 60)) / (1000 * 60));
-  };
-  getSecs(){
-    return  Math.floor((this.time % (1000 * 60)) / 1000);
+  }
+  getSecs() {
+    return Math.floor((this.time % (1000 * 60)) / 1000);
   }
 }
 const showDay = document.querySelector('span[data-value="days"]');
@@ -27,11 +26,14 @@ const showMins = document.querySelector('span[data-value="mins"]');
 const showSecs = document.querySelector('span[data-value="secs"]');
 const startTimer = () => {
   setInterval(() => {
-    const newTimer = new Timer({dateNow : Date.now(),targetDate : new Date(2021, 0, 30).getTime()}); 
+    const newTimer = new Timer({
+      dateNow: Date.now(),
+      targetDate: new Date(2025, 12, 0).getTime(),
+    });
     showDay.textContent = `${newTimer.getDays()}`;
     showHour.textContent = `${newTimer.getHours()}`;
     showMins.textContent = `${newTimer.getMins()}`;
     showSecs.textContent = `${newTimer.getSecs()}`;
-  }, 1000)
+  }, 1000);
 };
-startTimer()
+startTimer();
